@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioDto } from 'src/app/Models/UsuarioDto.model';
 import { CatalogoService } from 'src/app/Services/catalogo.service';
+import { UsuarioService } from 'src/app/Services/usuario.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -14,7 +15,10 @@ export class UsuariosComponent {
   public Roles:any[];
   public form: FormGroup;
   
-  constructor(private _Builder:FormBuilder, private _Catalgo: CatalogoService) {
+  constructor( 
+      private _Builder:FormBuilder, 
+      private _Catalgo: CatalogoService,
+      private _Service: UsuarioService) {
 
     this.Model = new UsuarioDto();
     
@@ -40,7 +44,11 @@ export class UsuariosComponent {
     this.Model.Contrasenia = this.form.value.contrasenia
     this.Model.IdRol = parseInt(this.form.value.idRol)
     
-    console.log( this.Model)
+    this._Service.PostUsuario(this.Model).subscribe((resp: boolean)=>{
+      if (resp['data']) {
+        alert('Usuario registrado correctamente');
+      }
+    })
   }
 
 }
