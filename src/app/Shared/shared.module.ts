@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { RouterModule } from '@angular/router';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
   declarations: [
     SideBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports:[
     SideBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    AlertComponent
   ]
 })
 export class SharedModule { }

@@ -1,3 +1,43 @@
 <div class="animate__animated animate__fadeIn">
-    <p>usuarios works!</p>
+    <div>
+        <form [formGroup]="form" (ngSubmit)="AddUser()">
+          <label for="fname">Nombre(s)</label>
+          <input 
+                type="text" 
+                id="fname" 
+                name="nombre" 
+                formControlName="nombre"
+                placeholder="Escribe tu nombre">
+      
+          <label for="lname">Apellido(s)</label>
+          <input 
+                type="text" 
+                id="lname" 
+                formControlName="apellidos"
+            >
+
+          <label for="lname">Cuenta</label>
+          <input 
+                type="text" 
+                id="cuenta" 
+                formControlName="correo"
+            >
+            <label for="lname">Contrasenia</label>
+            <input 
+                  type="text" 
+                  id="cuenta" 
+                  formControlName="contrasenia"
+              >
+      
+          <label for="country">Rol de Usuario</label>
+          <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+          </select>
+        
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      
 </div>
