@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotPageFoundComponent } from './not-page-found/not-page-found.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UsuarioService } from '../Services/usuario.service';
+import { CatalogoService } from '../Services/catalogo.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { UsuarioService } from '../Services/usuario.service';
     HttpClientModule
   ],
   providers:[
-    UsuarioService
+    UsuarioService,
+    CatalogoService
   ]
 })
 export class PagesModule { }

@@ -30,10 +30,8 @@
               >
       
           <label for="country">Rol de Usuario</label>
-          <select id="country" name="country">
-            <option value="australia">Australia</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
+          <select formControlName="idRol">
+            <option *ngFor="let item of Roles" value="{{item.idRol}}">{{item.descripcion}}</option>
           </select>
         
           <input type="submit" value="Submit">

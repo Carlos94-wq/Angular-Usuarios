@@ -5,5 +5,5 @@ export class UsuarioDto{
     public Correo: string;
     public Contrasenia: string;
     public Estatus: number;
-    public Rol: number
+    public IdRol: number
 }
