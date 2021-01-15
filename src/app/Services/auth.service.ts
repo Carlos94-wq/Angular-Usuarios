@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { UserCredentials } from '../Models/UserCrendentials.model';
@@ -11,7 +12,7 @@ export class AuthService {
   public url = environment.BaseUrl + 'Auth';
   public header: HttpHeaders;
   
-  constructor(private _http: HttpClient) { 
+  constructor(private _http: HttpClient, private _activated: Router) { 
     this.header = new HttpHeaders();
   }
 
@@ -27,6 +28,7 @@ export class AuthService {
     .pipe(
       tap( (resp:any) =>{
         sessionStorage.setItem('Usuario', JSON.stringify(resp['data']))
+        this._activated.navigate(['/Dashboard'])
       }),
     );
   }

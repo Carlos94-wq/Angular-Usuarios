@@ -28,8 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   public Login(){
-
-    console.log('dasdsa')
+    console.log(this.LoginForm)
 
     this.Model.Correo = this.LoginForm.value.correo;
     this.Model.Contrasenia = this.LoginForm.value.contrasenia;
